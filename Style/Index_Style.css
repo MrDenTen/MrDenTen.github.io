@@ -1,0 +1,634 @@
+/*
+plug - класс "загушка", созданый для движения фонов. Идет как горизонтальная полоска.
+!!!ЦЕНТРАЛЬНЫЕ КЛАССЫ!!!
+logo - класс с лого, находиться на самом вверху
+roof - класс крыши, находиться прямо под лого
+
+plug_main - класс загушки центра
+*/
+@font-face {
+    font-family: Pixel_font;
+    src: url(../fonts/Pixel.otf);
+}
+body, html{
+    margin: 0;
+    padding: 0;
+    background: url("../Image/background/main_background.png");
+    text-align: center;
+    font-family: Pixel_font;
+    font-size: 26px;
+    height: 100%;
+    color: black;
+}
+A:link {
+    text-decoration: none;
+    color: black;
+}
+A:visited { text-decoration: none;
+    color: black;
+}
+A:active { text-decoration: none;
+}
+A:hover {
+    text-decoration: none;
+    color: #320010
+}
+/**/
+
+
+.wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*Center block main*/
+.wrap_main{
+    position: relative;
+    display: grid;
+    z-index: 4;
+    grid-template-columns: 50px 25px 1000px 25px 50px;
+    grid-template-rows: 300px 1600px 100px;
+}
+.main_content{
+    display: grid;
+    grid-template-columns:  minmax(5px,25px) minmax(500px,1000px) minmax(5px,25px) ;
+    grid-row: 2 / 3;
+    grid-column: 2 / 5;
+    background: url("../Image/background/bricks.png");
+    background-size: 145px 145px;
+    box-shadow: 0 5px 5px 2px #994a30;
+
+}
+/*фоны*/
+
+.background{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 1900px;
+    background: url("../Image/background/mountains.png");
+
+}
+.headerImg{
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 450px;
+}
+.sky_upper{
+    width: 100%;
+    height: 200px;
+    background: url("../Image/background/clouds1.png");
+    background-size: 500px 100%;
+}
+.sky_down  {
+    width: 100%;
+    height: 150px;
+    background: url("../Image/background/clouds2.png");
+    background-size: 500px 130%;
+}
+.void_main{
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 750px;
+}
+.CenterImg{
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    background: url("../Image/background/Forest_river.png") ;
+    background-size: 800px 100%;
+    display:  grid;
+    z-index: 2 ;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 100px;
+}
+.river {
+    top: 1700px;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background: url("../Image/background/water3.png");
+    background-size: 400px 100%;
+    z-index: 1;
+}
+/*HEADER*/
+.header{
+    background:  url("../Image/roof/roof4.png");
+    background-size: 100% 100%;
+    grid-column: 1 / 6;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    z-index: 3;
+}
+.logo{
+    background: url("../Image/roof/logo.png");
+    background-size: 100% 100%;
+    grid-row: 8 / 16;
+    grid-column: 6 /11;
+}
+.logo_a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/*MAIN*/
+.main{
+    display: grid;
+    grid-row: 2 / 4;
+    grid-template-rows: 25px 500px 25px 500px 25px 500px 25px;
+}
+
+.floor{
+    /*background: gold url("../d870ade17c2a1cb.png");*/
+    background: url("../Image/floor_one/main_background_floor.png");
+    background-size: 120px 60px;
+    grid-row: 1 / 3;
+    /*box-shadow:*/
+    /*0 0 0 2px #994a30,*/
+    /*0 0 0 4px #974023,*/
+    /*0 0 0 8px #8d3011;*/
+    box-shadow:
+       inset 0 0 20px 5px #7c7c7c,
+             0 0 2px 2px #222222;
+    border-radius: 5px;
+}
+/*FLOOR_1*/
+.floor1{
+    background: url("../Image/floor_one/background_floor_one.png");
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+.banner{
+    background:  url("../Image/floor_one/banner.png");
+    background-size: 100% 100%;
+    left: 100px;
+    grid-column: 3 / 24;
+    grid-row: 1 / 8;
+    display: grid;
+    grid-template-columns: 10px 1fr 10px;
+    grid-template-rows: 40px 35px 1fr 40px;
+}
+.text_banner_name{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    font-size: 32px;
+    font-weight:bold;
+}
+.text_banner{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    font-size: 28px;
+}
+.name_site{
+    text-transform: uppercase;
+    font-size: 36px;
+    background:url('../Image/floor_one/text1.png');
+    background-size: 30px 30px;
+    background-repeat:repeat-x;
+    background-position:0 0;
+    text-align:center;
+    color:transparent;
+    -webkit-font-smoothing:antialiased;
+    -webkit-background-clip:text;
+    -moz-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin:0;
+}
+.hotplate{
+    background:  url("../Image/floor_one/hotplate.png");
+    background-size: 100% 100%;
+    grid-column: 20 / 25;
+    grid-row: 11 / 22;
+}
+.refrigerator_helper{
+    background:  url("../Image/floor_one/right_s.png");
+    background-size: 100% 100%;
+    grid-column: 12 / 14;
+    grid-row: 7 / 10;
+    font-size: 20px;
+    padding-top: 25px;
+    animation-name: helper;
+    animation-duration: 5s;
+    transition-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.text_helper{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    text-transform: uppercase;
+    animation-name: text_bg_one;
+    animation-duration: 5s;
+    transition-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background:url('../Image/floor_one/text_bg.png');
+    background-size: 30px 30px;
+    background-repeat:repeat-x;
+    background-position:0 0;
+    text-align:center;
+    color:transparent;
+    -webkit-font-smoothing:antialiased;
+    -webkit-background-clip:text;
+    -moz-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin:0;
+    font-weight:bold;
+}
+.refrigerator{
+    background:  url("../Image/floor_one/refrigerator.png");
+    background-size: 100% 100%;
+    grid-column: 14 / 19;
+    grid-row: 7 / 22;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 106px 1fr;
+    position:relative;
+}
+.test_button{
+    background:  url("../Image/floor_one/animation/but_1.png");
+    background-size: 100% 100%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    z-index: 1;
+    line-height: 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px 1fr 20px;
+}
+.refrigerator_text_div{
+    grid-row: 2 / 3;
+
+}
+.test_page{
+    font-size: 22px;
+    line-height: 22px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.refrigerator_door{
+    background:  url("../Image/floor_one/animation/door.png");
+    background-size: 100% 100%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    z-index: 2;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:106px;
+    transform-origin: left;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.picture{
+    background:  url("../Image/floor_one/picture.png");
+    background-size: 100% 100%;
+    grid-column: 7 / 9;
+    grid-row: 7 / 10;
+}
+.Window_flower{
+    background:  url("../Image/floor_one/Window_flower.png");
+    background-size: 100% 100%;
+    grid-column: 1 / 2;
+    grid-row: 10 / 13;
+    z-index: 1;
+}
+.cupboard{
+    background:  url("../Image/floor_one/cupboard.png");
+    background-size: 100% 100%;
+    grid-column: 5 / 12;
+    grid-row: 11 / 22;
+}
+.flower{
+    background:   url("../Image/floor_one/flower.png") no-repeat;
+    background-position-x: 40%;
+    background-size: 80% 100%;
+    grid-column: 1 / 3;
+    grid-row: 17 / 22;
+
+}
+
+/*FLOOR_2*/
+.floor2{
+    grid-row: 4 / 5;
+    background: url("../Image/floor_two/background_floor_two.png");
+    background-size: 100% 100%;
+    display: grid;
+    grid-template-columns: repeat(35, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+.bed{
+    background: url("../Image/floor_two/bed.png");
+    background-size: 100% 100%;
+    grid-column: 21 / 36;
+    grid-row: 16 / 21;
+}
+.door_floor2{
+    background: url("../Image/floor_two/door.png");
+    background-size: 100% 100%;
+    grid-column: 2 / 10;
+    grid-row: 6 / 21;
+}
+.bookcase{
+    background: url("../Image/floor_two/shelf.png");
+    background-size: 100% 100%;
+    grid-column: 11 / 19;
+    grid-row: 5 / 21;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 170px 1fr 120px;
+}
+.bookcase_block_text{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    font-size: 22px;
+    line-height: 22px;
+}
+.poster1_helper{
+    background:  url("../Image/floor_one/up_s.png");
+    background-size: 100% 100%;
+    grid-column: 23 / 25;
+    grid-row: 13 / 16;
+    font-size: 20px;
+    padding-top: 25px;
+    animation-name: helper_up;
+    animation-duration: 5s;
+    transition-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.text_helper2{
+    writing-mode: vertical-rl;
+    background-size: 50px 50px;
+    margin-left: -16px;
+    margin-top: -10px;
+}
+.poster2_helper{
+    background:  url("../Image/floor_one/up_s.png");
+    background-size: 100% 100%;
+    grid-column: 30 / 32;
+    grid-row: 13 / 16;
+    font-size: 20px;
+    padding-top: 25px;
+    animation-name: helper_up;
+    animation-duration: 5s;
+    transition-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.poster_space{
+    background: url("../Image/floor_two/Paint/Poster_space.png");
+    background-size: 100% 100%;
+    grid-column: 21 / 27;
+    grid-row: 4 / 13;
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    grid-template-rows: 1fr 150px 1fr;
+}
+.black, .text_poster{
+    grid-column: 1 / 4;
+    grid-row: 1 / 5;
+    z-index: 4;
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+.text_poster{
+    opacity: 0;
+    z-index: 5;
+}
+.poster:hover .black{
+    background: black;
+    opacity: 40%;
+}
+.poster:hover .text_poster{
+    opacity: 100%;
+}
+.text_poster_1{
+    margin-top: 50px;
+}
+.text_poster_2{
+    margin-top: 20px;
+}
+.stars{
+    background: url("../Image/floor_two/Paint/Stars.png");
+    background-size: 100% 100%;
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+}
+.man{
+    background: url("../Image/floor_two/Paint/Space_man.png");
+    background-size: 100% 100%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+.poster_house{
+    background: url("../Image/floor_two/Paint/Poster_house.png");
+    background-size: 100% 100%;
+    grid-column: 28 / 34;
+    grid-row: 4 / 13;
+        display: grid;
+    grid-template-columns: 1fr 150px 1fr;
+    grid-template-rows: 1fr 1fr 185px 1fr;
+}
+.clouds{
+    background: url("../Image/floor_two/Paint/clouds.png");
+    background-size: 100% 100%;
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+
+}
+.home{
+    z-index: 1;
+    background: url("../Image/floor_two/Paint/home.png");
+    background-size: 100% 100%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+/*FLOOR_3*/
+.floor3{
+    grid-row: 6 / 7;
+    background: url("../Image/floor_three/Без названия (54).png");
+    background-size: 100% 100%;
+    display: grid;
+    grid-template-columns: repeat(36, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+.fireplace{
+    background: url("../Image/floor_three/fireplace.png");
+    background-size: 100% 100%;
+    grid-column: 14 / 24;
+    grid-row: 1 / 21;
+    z-index: 2;
+}
+.fireplace_bg{
+    background: url("../Image/floor_three/fireplace_Bg.png");
+    z-index: 1;
+    background-size: 100px 100px;
+    grid-column: 15 / 23;
+    grid-row: 13 / 21;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+}
+.campfire_log{
+    background: url("../Image/floor_three/Fire/campfire_log.png");
+    grid-column: 5 / 18;
+    grid-row: 10 / 15;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+.fire{
+    background: url("../Image/floor_three/Fire/fire_1.png");
+    background-size: 100% 100%;
+    grid-column: 6 / 17;
+    grid-row: 3 / 15;
+
+}
+.text_board_right{
+    background: url("../Image/floor_three/text_board.png");
+    background-size: 100% 100%;
+    grid-column: 2 / 14;
+    grid-row: 3 / 9;
+    display: grid;
+    grid-template-columns: 15px 1fr 15px;
+    grid-template-rows: 12px 35px 1fr 12px;
+}
+.text_board_left{
+    background: url("../Image/floor_three/text_board.png");
+    background-size: 100% 100%;
+    grid-column: 24 / 36;
+    grid-row: 3 / 9;
+    display: grid;
+    grid-template-columns: 15px 1fr 15px;
+    grid-template-rows: 12px 35px 1fr 12px;
+}
+.first_text{
+    grid-column: 2 / 3;
+    grid-row: 2/ 3;
+    font-size: 28px;
+}
+.text__board{
+    grid-column: 2 / 3;
+    grid-row: 3/ 4;
+    font-size: 22px;
+}
+.FAQ{
+    font-size: 28px;
+}
+.sofa{
+    background: url("../Image/floor_three/sofa.png");
+    background-size: 100% 100%;
+    grid-column: 2 / 14;
+    grid-row: 14 / 21;
+}
+.table{
+    background: url("../Image/floor_three/table.png");
+    background-size: 100% 100%;
+    grid-column: 25 / 32;
+    grid-row: 12 / 21;
+}
+.vase{
+    background: url("../Image/floor_three/flower.png");
+    background-size: 100% 100%;
+    grid-column: 33 / 36;
+    grid-row: 12 / 21;
+}
+/*FOOTER*/
+.footer{
+    background: url("../Image/background/bg_footer.png");
+    background-size: 100px 100px;
+    grid-column: 2 / 5;
+    grid-row: 3 / 4;
+    display:  grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+.social{
+    grid-column: 12 /16;
+    grid-row: 3 / 6;
+    display:  grid;
+    grid-template-columns: 50px 20px 50px 20px 50px 20px 50px;
+    grid-template-rows: 1fr;
+}
+.vk{
+    grid-column: 1 /2;
+    background: url("../Image/footer/vk.png");
+    background-size: 100% 100%;
+}
+.instagram{
+    grid-column: 3 /4;
+    background: url("../Image/footer/inst.png");
+    background-size: 100% 100%;
+}
+.twitter{
+    grid-column: 5 /6;
+    background: url("../Image/footer/twit.png");
+    background-size: 100% 100%;
+}
+.youtube{
+    grid-column: 7 /8;
+    background: url("../Image/footer/youtube.png");
+    background-size: 100% 100%;
+}
+.a_vk{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/*КИРПИЧИ*/
+.bricks_left, .bricks_right{
+    grid-row: 2 / 8;
+}
+/*Боковые стены*/
+.bricks_left{
+    grid-column: 1 / 2;
+}
+.bricks_right{
+    grid-column: 3 / 4;
+}
+.left_background_wall, .right_background_wall{
+    display: grid;
+    grid-template-rows: repeat(35,1fr);
+    grid-row: 2 / 8;
+}
+.left_background_wall{
+    grid-column: 1 / 2;
+}
+.right_background_wall{
+    grid-column: 5 / 6;
+}
+/*Объекты на боковых стенах*/
+.window{
+    background: url("../Image/background/window.png");
+    background-size: 25px 100%;
+    grid-row: 4 / 7;
+    transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(15deg);
+    margin-left: 25px;
+}
+.snail{
+    background: url("../Image/background/snail.png");
+    background-size: 100% 100%;
+    grid-row: 14 / 15;
+}
+.wall_flower{
+    background: url("../Image/background/wall_flower.png");
+    background-size: 100% 100%;
+    grid-row: 19 / 20;
+    margin-left: 20px;
+}
+
+

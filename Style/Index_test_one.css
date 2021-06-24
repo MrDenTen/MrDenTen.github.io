@@ -1,0 +1,597 @@
+/*
+plug - класс "загушка", созданый для движения фонов. Идет как горизонтальная полоска.
+!!!ЦЕНТРАЛЬНЫЕ КЛАССЫ!!!
+logo - класс с лого, находиться на самом вверху
+roof - класс крыши, находиться прямо под лого
+
+plug_main - класс загушки центра
+*/
+@font-face {
+    font-family: Pixel_font;
+    src: url(../fonts/Pixel.otf);
+}
+body, html{
+    margin: 0;
+    padding: 0;
+    background: url("../Image/background/main_background.png");
+    text-align: center;
+    font-family: Pixel_font;
+    font-size: 26px;
+    height: 100%;
+}
+.wrap_start{
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+    grid-template-rows: 1fr 900px 1fr;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+.wrap_start_off{
+    display: none;
+}
+.texture{
+    background: url("../Image/test/texture.png");
+    background-size: 50px 50px;
+    width: 100%;
+    height: 100%;
+    opacity: 95%;
+    grid-row: 1 / 4;
+    grid-column: 1 / 4;
+}
+.start{
+    background: url("../Image/test/result2.png");
+    background-size: 100% 100%;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 130px 200px 50px 1fr 90px;
+}
+#Start_but{
+    outline: none;
+    background: url("../Image/test/but.png") no-repeat  ;
+    background-size: 100% 100%;
+    color: #c41c0b;
+    border-radius: 10px;
+    outline: transparent;
+    border: none;
+    width: 70%;
+    height: 70%;
+    cursor: pointer;
+    font-family: Pixel_font;
+    font-size: 68px;
+    line-height: 36px;
+}
+#Start_but:hover{
+    background: url("../Image/test/but_focus.png") no-repeat  ;
+    background-size: 100% 100%;
+}
+.text_start{
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    font-size: 84px;
+    line-height: 66px;
+}
+.block_but_start{
+    grid-row: 4 / 5;
+    grid-column: 2 / 3;
+}
+/**/
+.wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*Center block main*/
+.wrap_main{
+    position: relative;
+    display: grid;
+    z-index: 4;
+    grid-template-columns: 50px 25px 1000px 25px 50px;
+    grid-template-rows: 300px 3700px 100px;
+}
+.main_content{
+    display: grid;
+    grid-template-columns:  minmax(5px,25px) minmax(500px,1000px) minmax(5px,25px) ;
+    grid-row: 2 / 3;
+    grid-column: 2 / 5;
+    background:  url("../Image/background/bricks.png");
+    background-size: 145px 145px;
+    box-shadow: 0 5px 5px 2px #994a30;
+
+}
+/*фоны*/
+.background{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 4100px;
+    background: url("../Image/background/mountains.png");
+
+}
+.headerImg{
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 450px;
+}
+.sky_upper{
+    width: 100%;
+    height: 200px;
+    background: url("../Image/background/clouds1.png");
+    background-size: 500px 100%;
+}
+.sky_down  {
+    width: 100%;
+    height: 150px;
+    background: url("../Image/background/clouds2.png");
+    background-size: 500px 130%;
+}
+.void_main{
+    background: url("../Image/background/Bag2.png");
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 1550px;
+}
+.void_main2{
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 1300px;
+}
+.CenterImg{
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    background: url("../Image/background/Forest_river.png") ;
+    background-size: 800px 100%;
+    display:  grid;
+    z-index: 2 ;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 100px;
+}
+.river {
+    top: 3800px;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background: url("../Image/background/water3.png");
+    background-size: 400px 100%;
+    z-index: 1;
+}
+/*HEADER*/
+.header{
+    background:  url("../Image/roof/roof4.png");
+    background-size: 100% 100%;
+    grid-column: 1 / 6;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+}
+.logo{
+    background: url("../Image/roof/logo.png");
+    background-size: 100% 100%;
+    grid-row: 8 / 16;
+    grid-column: 6 /11;
+}
+.logo_a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/*MAIN*/
+.main{
+    display: grid;
+    grid-row: 2 / 4;
+    grid-template-rows: 25px 500px 25px 500px 25px 500px 25px 500px 25px 500px 25px 500px 25px 500px 25px;
+}
+
+.floor{
+    /*background: gold url("../d870ade17c2a1cb.png");*/
+    background: url("../Image/floor_three/background_floor_three.png");
+    background-size: 100% 110%;
+    grid-row: 1 / 3;
+    /*box-shadow:*/
+    /*0 0 0 2px #994a30,*/
+    /*0 0 0 4px #974023,*/
+    /*0 0 0 8px #8d3011;*/
+    box-shadow:
+            inset 0 0 20px 5px #7c7c7c,
+            0 0 2px 2px #222222;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+.question{
+    background: url("../Image/test/question.png");
+    background-size: 100% 100%;
+    grid-column: 2 / 20;
+    grid-row: 2 / 14;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 40px 1fr 40px;
+}
+.text_question{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+.answer1{
+    grid-column: 3 / 9;
+    grid-row: 15 / 17;
+}
+.answer2{
+    grid-column: 13 / 19;
+    grid-row: 15 / 17;
+}
+.answer3{
+    grid-column: 3 / 9;
+    grid-row: 18 / 20;
+}
+.answer4{
+    grid-column: 13 / 19;
+    grid-row: 18 / 20;
+}
+input[type=radio] + label {
+    width: 100%;
+    height: 100%;
+    background: url("../Image/test/answer.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    cursor: pointer;
+
+}
+input[type=radio]:checked + label{
+    width: 100%;
+    height: 100%;
+    background:url("../Image/test/answer_click.png");
+    background-size: 100% 100%;
+}
+input[type=radio]{
+    background: yellow url("../Image/test/answer.png");
+    border-radius: 10%;
+    width: 2000px;
+    height: 200px;
+    position: absolute;
+    visibility: hidden;
+}
+.top_block{
+    background: url("../Image/test/result2.png");
+    background-size: 100% 100%;
+    grid-column: 7 / 15;
+    grid-row: 2 / 20;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 40px repeat(6, 1fr) 40px;
+}
+.top_block_hiden{
+    display: none;
+}
+.result{
+    background: url("../Image/test/result2.png");
+    background-size: 100% 100%;
+    grid-column: 7 / 15;
+    grid-row: 2 / 20;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 50px repeat(5, 1fr 8px) 50px;
+}
+.button_result{
+    grid-column: 2 / 6;
+    grid-row: 4 / 6;
+}
+.bg_but{
+    background: url("../Image/test/bg_but2.png");
+    background-size: 100% 100%;
+    grid-column: 3 / 5;
+    grid-row: 2 / 4;
+}
+.result_but{
+    outline: none;
+    background: url("../Image/test/but.png");
+    background-size: 100% 100%;
+    color: #c41c0b;
+    border-radius: 10px;
+    outline: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-family: Pixel_font;
+    font-size: 44px;
+    line-height: 36px;
+}
+.result_but:hover{
+    outline: none;
+    background: url("../Image/test/but.png");
+    background-size: 100% 100%;
+    color: #c4372e;
+    border-radius: 10px;
+    outline: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-family: Pixel_font;
+    font-size: 44px;
+    line-height: 36px;
+}
+input[type=text]{
+    font-size: 30px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 35px;
+    height: 40px;
+    font-weight:bold;
+    max-width: 2ch;
+}
+input[type=button]{
+    white-space: normal;
+}
+.Otvet_text{
+    text-shadow: 2px 8px 8px 8px #994a30;
+    grid-column: 5 / 13;
+    grid-row: 2 / 3;
+    line-height: 28px;
+    font-size: 38px;
+    font-weight:bold;
+}
+
+.result_inf_one{
+
+    grid-column: 4 / 14;
+    grid-row: 4 / 5;
+    line-height: 28px;
+    font-size: 38px;
+}
+.result_inf{
+
+    grid-column: 5 / 13;
+    grid-row: 6 / 7;
+    line-height: 28px;
+    font-size: 38px;
+}
+.back_block{
+    background: url("../Image/test/but.png");
+    background-size: 100% 100%;
+    grid-column: 6 / 12;
+    grid-row: 8 / 9;
+}
+.back{
+    display: block;
+    font-size: 31px;
+    width: 100%;
+    height: 100%;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-left: 2px;
+}
+.back:link {
+    text-decoration: none;
+    color: black;
+}
+.back:visited { text-decoration: none;
+    color: black;
+}
+.back:active { text-decoration: none;
+}
+.back:hover {
+    text-decoration: none;
+    color: #320010
+}
+/*!*Создание radio бокса*!*/
+/*.answer {*/
+/*    display: inline-block;*/
+/*}*/
+/*.answer input[type=radio]{*/
+/*    display: none;*/
+/*}*/
+/*.answer label {*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*    background: url("../Image/test/answer.png");*/
+/*    background-size: 100% 100%;*/
+/*    user-select: none;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    padding-top: 10px;*/
+/*}*/
+/*.answer input[type=radio]:checked + label {*/
+/*    background: url("../Image/test/answer_click.png");*/
+/*    background-size: 100% 100%;*/
+/*}*/
+/*.answer label:active {*/
+/*    background: url("../Image/test/answer_click.png");*/
+/*    background-size: 100% 100%;*/
+/*}*/
+
+/*.answer1{*/
+/*    grid-column: 3 / 9;*/
+/*    grid-row: 15 / 17;*/
+/*}*/
+/*.answer2{*/
+/*    grid-column: 13 / 19;*/
+/*    grid-row: 15 / 17;*/
+/*}*/
+/*.answer3{*/
+/*    grid-column: 3 / 9;*/
+/*    grid-row: 18 / 20;*/
+/*}*/
+/*.answer4{*/
+/*    grid-column: 13 / 19;*/
+/*    grid-row: 18 / 20;*/
+/*}*/
+
+.answer_text{
+    display: block;
+    padding-top: 10px;
+    font-size: 24px;
+}
+.floor1{
+    grid-row: 2 / 3;
+}
+.question_1{
+    display: block;
+    padding-top: 50px;
+    font-size: 32px;
+}
+.question_2{
+    display: block;
+    padding-top: 30px;
+    font-size: 32px;
+}
+.question_3{
+    display: block;
+    padding-top: 40px;
+    font-size: 32px;
+}
+.question_4{
+    display: block;
+    padding-top: 40px;
+    font-size: 32px;
+}
+.question_5{
+    display: block;
+    padding-top: 40px;
+    font-size: 32px;
+}
+.question_6{
+    display: block;
+    padding-top: 30px;
+    font-size: 32px;
+}
+.floor2{
+    grid-row: 4 / 5;
+}
+.floor3{
+    grid-row: 6 / 7;
+}
+.floor4{
+    grid-row: 8 / 9;
+}
+.floor5{
+    grid-row: 10 / 11;
+}
+.floor6{
+    grid-row: 12 / 13;
+}
+.floor7{
+    grid-row: 14 / 15;
+}
+input[type=radio]{
+    background: yellow url("../Image/test/answer.png");
+    border-radius: 10%;
+    width: 50px;
+    height: 50px;
+}
+
+.lamp_left{
+    background: url("../Image/test/lamp.png");
+    background-size: 100% 100%;
+    grid-column: 3 / 5;
+    grid-row: 4 / 22;
+}
+.lamp_right{
+    background: url("../Image/test/lamp.png");
+    background-size: 100% 100%;
+    grid-column: 17 / 19;
+    grid-row: 4 / 22;
+}
+.lamp_right:hover, .lamp_left:hover{
+    background: url("../Image/test/lamp_on.png");
+    background-size: 100% 100%;
+}
+
+/*Боковые стены*/
+.bricks_left, .bricks_right{
+    grid-row: 2 / 8;
+}
+.bricks_left{
+    grid-column: 1 / 2;
+}
+.bricks_right{
+    grid-column: 3 / 4;
+}
+.left_background_wall, .right_background_wall{
+    display: grid;
+    grid-template-rows: repeat(35,1fr);
+    grid-row: 2 / 8;
+}
+.left_background_wall{
+    grid-column: 1 / 2;
+}
+.right_background_wall{
+    grid-column: 5 / 6;
+}
+
+.footer{
+    background: url("../Image/background/bg_footer.png");
+    background-size: 100px 100px;
+    grid-column: 2 / 5;
+    grid-row: 3 / 4;
+    display:  grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+.social{
+    grid-column: 12 /16;
+    grid-row: 3 / 6;
+    display:  grid;
+    grid-template-columns: 50px 20px 50px 20px 50px 20px 50px;
+    grid-template-rows: 1fr;
+}
+.vk{
+    grid-column: 1 /2;
+    background: url("../Image/footer/vk.png");
+    background-size: 100% 100%;
+}
+.instagram{
+    grid-column: 3 /4;
+    background: url("../Image/footer/inst.png");
+    background-size: 100% 100%;
+}
+.twitter{
+    grid-column: 5 /6;
+    background: url("../Image/footer/twit.png");
+    background-size: 100% 100%;
+}
+.youtube{
+    grid-column: 7 /8;
+    background: url("../Image/footer/youtube.png");
+    background-size: 100% 100%;
+}
+.a_vk{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/*Объекты на боковых стенах*/
+.window{
+    background: url("../Image/background/window.png");
+    background-size: 25px 100%;
+    grid-row: 4 / 7;
+    transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(15deg);
+    margin-left: 25px;
+}
+.snail{
+    background: url("../Image/background/snail.png");
+    background-size: 100% 100%;
+    grid-row: 9 / 10;
+}
+
+
+/**/
+
+
+
+
+
+

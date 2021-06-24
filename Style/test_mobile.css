@@ -1,0 +1,37 @@
+@media screen and (max-width : 1080px) {
+    .main_content{
+        grid-column: 1 / 6;
+    }
+    .floor{
+        grid-column: 1 / 6;
+    }
+    .bricks_right{
+        display: none;
+    }
+    .main_content{
+        grid-template-columns: minmax(5px,20px) minmax(500px,1200px);
+    }
+    .right_background_wall, .window{
+        display: none;
+    }
+    .footer{
+        grid-column: 1 / 6;
+    }
+    .header{
+        background: url("../Image/roof/roof_mobile.png");
+        background-size: 100% 100%;
+    }
+    .wrap_main{
+        grid-template-rows: 300px 3700px 100px;
+        width: 100%;
+    }
+    .main{
+        grid-column: 1 / 3;
+    }
+    .answer_text{
+        font-size: 26px;
+    }
+    .background{
+        display: none;
+    }
+}

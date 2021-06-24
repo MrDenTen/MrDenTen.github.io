@@ -1,0 +1,234 @@
+.sky_upper{
+     animation-name: upper;
+     animation-duration: 300s;
+     animation-iteration-count: infinite;
+ }
+@keyframes upper {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+
+    }
+    100% {
+        background-position: 2500px 0;
+    }
+}
+
+.sky_down{
+    animation-name: down;
+    animation-duration: 300s;
+    animation-iteration-count: infinite;
+}
+@keyframes down {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+
+    }
+    100% {
+        background-position: 1500px 0;
+    }
+}
+.river{
+    animation-name: river_an;
+    animation-duration: 598s;
+    animation-iteration-count: infinite;
+}
+@keyframes river_an {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+
+    }
+    100% {
+        background-position: 4500px 0;
+    }
+}
+.fire{
+    animation-name: fire_an;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+@keyframes fire_an {
+    0% {
+        background: url("../Image/floor_three/Fire/fire_1.png");
+        background-size: 100% 100%;
+    }
+    33% {
+        background: url("../Image/floor_three/Fire/fire_2.png");
+        background-size: 100% 100%;
+    }
+    66% {
+        background: url("../Image/floor_three/Fire/fire_3.png");
+        background-size: 100% 100%;
+    }
+    100% {
+        background: url("../Image/floor_three/Fire/fire_4.png");
+        background-size: 100% 100%;
+    }
+}
+
+.clouds{
+    animation-name: clouds_an;
+    animation-duration: 600s;
+    animation-iteration-count: infinite;
+}
+@keyframes clouds_an {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+
+    }
+    100% {
+        background-position: 4500px 0;
+    }
+}
+
+.stars{
+    animation-name: stars_an;
+    animation-duration: 200s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes stars_an {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+
+    }
+    100% {
+        background-position: 2500px 0;
+    }
+}
+
+.man{
+    animation-name: man_an;
+    animation-duration: 5s;
+    transition-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes man_an {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+/**/
+
+.door
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+    transition: all 0.5s ease-in-out;
+}
+
+.doorOpen
+{
+    /*prespectiv creates the door open effect*/
+    transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
+}
+
+@keyframes helper {
+    0% {
+        transform: translatex(0px);
+    }
+    50% {
+        transform: translatex(-10px);
+    }
+    100% {
+        transform: translatex(0px);
+    }
+}
+@keyframes helper_up {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(10px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+@keyframes text_bg_one {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 0;
+    }
+}
+
+
+
+/*.washingmachine:before {*/
+/*    position: absolute;*/
+/*    z-index: -1;*/
+/*    bottom: 20px;*/
+/*    left: 50%;*/
+/*    margin-left: -145px;*/
+/*    width: 290px;*/
+/*    height: 20px;*/
+/*    box-shadow: 0 20px 40px 30px rgba(0, 0, 0, 0.15);*/
+/*}*/
+
+/*.refrigerator:after {*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    bottom: 15px;*/
+/*    left: 15px;*/
+/*    width: 70px;*/
+/*    height: 35px;*/
+/*}*/
+
+/*.refrigerator .refrigerator_door {*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    margin-left: -100px;*/
+/*    transform: translateZ(0);*/
+/*    animation: close 0.5s ease-in 0s 1 forwards;*/
+/*}*/
+
+/*.refrigerator:hover .refrigerator_door {*/
+/*    transform: translateZ(0);*/
+/*    animation: open 0.5s ease-in 0s 1 forwards;*/
+/*}*/
+
+
+/*@keyframes open {*/
+/*    from {*/
+/*        transform: perspective(1000px) rotateY(0deg);*/
+/*        transform-origin: 0% 0%;*/
+/*    }*/
+/*    to {*/
+/*        transform: perspective(1000px) rotateY(-105deg);*/
+/*        transform-origin: 0% 0%;*/
+/*    }*/
+/*}*/
+
+
+/*@keyframes close {*/
+/*    from {*/
+/*        transform: perspective(1000px) rotateY(-105deg);*/
+/*        transform-origin: 0% 0%;*/
+/*    }*/
+/*    to {*/
+/*        transform: perspective(1000px) rotateY(0deg);*/
+/*        transform-origin: 0% 0%;*/
+/*    }*/
+/*}*/

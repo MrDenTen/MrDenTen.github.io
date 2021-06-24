@@ -1,0 +1,125 @@
+@media screen and (max-width : 1080px) {
+    .main_content{
+        grid-column: 1 / 6;
+    }
+    .floor{
+        grid-column: 1 / 6;
+    }
+    .text_poster_1 {
+        margin-top: 90px;
+    }
+    .bricks_right{
+        display: none;
+    }
+    .background{
+        display: none;
+    }
+    .main_content{
+        grid-template-columns: minmax(5px,20px) minmax(500px,1200px);
+    }
+    .right_background_wall, .window{
+        display: none;
+    }
+    .footer{
+        grid-column: 1 / 6;
+    }
+    .header{
+        background: url("../Image/roof/roof_mobile.png");
+        background-size: 100% 100%;
+    }
+    .wrap_main{
+        grid-template-rows: 300px 2100px 100px;
+        width: 100%;
+    }
+
+    .main{
+        grid-template-rows: 35px 650px 35px 650px 25px 650px 35px;
+        grid-column: 1 / 3;
+    }
+    .bookcase{
+        grid-template-rows: 220px 1fr 120px;
+    }
+    .text_helper2 {
+        writing-mode: vertical-rl;
+        background-size: 70px 70px;
+        margin-left: -20px;
+        margin-bottom: 20px;
+        height: 80%;
+    }
+    .text_helper{
+        margin-top: 10px;
+        font-size: 22px;
+    }
+    .refrigerator {
+        grid-template-rows: 136px 1fr;
+    }
+    .refrigerator_door {
+        height: 100%;
+
+    }
+    .test_button{
+        grid-template-rows: 40px 1fr 20px;
+    }
+    .name_site {
+        background-size: 50px 50px;
+    }
+    .first_text {
+        margin-top: 10px;
+        font-size: 34px;
+        line-height: 18px;
+    }
+    .text__board {
+        font-size: 32px;
+        line-height: 26px;
+    }
+    .bookcase_block_text {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        font-size: 28px;
+        line-height: 22px;
+    }
+    .test_page {
+        font-size: 25px;
+    }
+    .text_banner {
+
+        font-size: 32px;
+    }
+}
+
+
+/*@media only screen and (max-width : 480px){*/
+
+/*    .bookcase_block_text {*/
+/*        font-size: 10px;*/
+/*        line-height: 12px;*/
+/*    }*/
+/*    .text_banner {*/
+/*        font-size: 12px;*/
+/*        line-height: 14px;*/
+/*    }*/
+/*    .text_banner_name {*/
+/*        font-size: 12px;*/
+/*        line-height: 14px;*/
+/*    }*/
+/*    .banner {*/
+/*        grid-template-rows: 40px 45px 1fr 40px;*/
+/*    }*/
+/*    .name_site {*/
+
+/*        font-size: 24px;*/
+/*    }*/
+/*}*/
+/*@media only screen and (max-width : 375px)  {*/
+/*    .first_text {*/
+/*        font-size: 10px;*/
+/*        line-height: 12px;*/
+/*    }*/
+/*    .text__board {*/
+/*        font-size: 10px;*/
+/*        line-height: 12px;*/
+/*    }*/
+/*    .name_site {*/
+/*        font-size: 22px;*/
+/*    }*/
+/*}*/
